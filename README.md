@@ -38,23 +38,9 @@ page-source branch of this repo and they get deployed to the master
 branch.
 
 1.  ```git clone git@github.com:esnet/esnet.github.io.git```
-2.  ```git branch page-source```
+2.  ```git checkout origin/page-source -b feature/featureChange```
 3.  Edit ```docs/index.rst```.  This file is in ReStructured Text
     format (see http://www.sphinx-doc.org/en/stable/rest.html for
     details).
-4.  ```make html```
-5.  Preview the result at ```_build/html/index.html``` (the MacOS open
-    command will open this page in the default Web browser)
-6.  Commit and push the changes to the page sources.
-7.  To deploy, make a tarball of the HTML tree:  ```tar -c -C docs/_build/html -f /tmp/software.tar .```
-8.  Switch back to the master branch with ```git branch master```
-9.  Unpack the tarball you just made:  ```tar -xvf /tmp/software.tar```
-10.  Commit and push the deployed HTML pages.  After this point they'll
-    show up (shortly?) at http://software.es.net/.  Note:  It is not
-    necessary (and probably not even desirable) to add .buildinfo as a
-    new file.
-
-	
-	
-
-
+4.  Push your branch and create a pull request.
+5.  Once approved, the software.es.net should automatically be updated.
