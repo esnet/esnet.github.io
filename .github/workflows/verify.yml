@@ -1,0 +1,27 @@
+name: Verify HTML Documentation
+
+on:
+  push:
+    branches:
+      - pages-source
+  pull_request:
+    branches:
+      - pages-source
+
+
+# workflow_dispatch:        # Un comment line if you also want to trigger action manually
+
+jobs:
+  sphinx_docs_to_gh-pages:
+    runs-on: ubuntu-latest
+    name: Sphinx docs to gh-pages
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Installing the library
+        shell: bash -l {0}
+        run: |
+          apt install -y python3-pip;
+          pip3 install -r requirements.txt;
+          cd docs; TZ=UTC make html 

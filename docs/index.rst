@@ -33,13 +33,18 @@ sLS_
 Pond_
     A library build on top of immutable.js to provide basic timeseries functionality within ESnet tools.
 
-ENOS
+ENOS_
     The ESnet Network Operating System, an environment for running
     control plane software for Software Defined Networks.  Contained
     in two repositories, Netshell_ and ENOS_.
 
+GDG_
+    Grafana Dash-n-Grab (GDG) -- Dashboard/DataSource Manager. The purpose of this project is to provide an easy-to-use CLI to interact with the grafana API allowing you to backup and restore dashboard, connections (formerly datasources), and other entities.
+
+
 .. _ESnet: http://www.es.net/
 .. _iperf: http://software.es.net/iperf/
+.. _GDG: http://software.es.net/gdg/
 .. _sLS: http://software.es.net/simple-lookup-service/
 .. _Timeseries Charts: http://software.es.net/react-timeseries-charts/
 .. _Network Diagrams: http://software.es.net/react-network-diagrams/

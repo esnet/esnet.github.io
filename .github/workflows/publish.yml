@@ -1,0 +1,38 @@
+name: Sphinx docs to gh-pages
+
+
+on:
+  push:
+    permissions:
+      content: write
+    branches:
+      - pages-source
+
+workflow_dispatch: 
+
+jobs:
+  sphinx_docs_to_gh-pages:
+    runs-on: ubuntu-latest
+    name: Sphinx docs to gh-pages
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Installing the library
+        shell: bash -l {0}
+        run: |
+          apt install -y python3-pip;
+          pip3 install -r requirements.txt;
+          cd docs; TZ=UTC make html 
+
+      - uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/page-sources' }}
+        with:
+          publish_branch: master
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/_build/html
+#      - name: Deploy 🚀
+#        uses: JamesIves/github-pages-deploy-action@v4
+#        with:
+#          folder: docs/_build # The folder the action should deploy.
+#          branch: master
